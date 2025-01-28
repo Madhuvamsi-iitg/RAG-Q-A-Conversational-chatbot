@@ -1,0 +1,10 @@
+1. The project implements a Retrieval-Augmented Generation (RAG) system using Streamlit for the frontend, allowing users to upload PDFs and have intelligent conversations about their content with chat history preservation.
+2. It uses the Gemma-2-9b-It model through Groq's API as the Large Language Model, and HuggingFace's all-MiniLM-L6-v2 for generating embeddings of the document content.
+3. The system includes a secure API key input mechanism and session management functionality, allowing different users to maintain separate conversation histories through unique session IDs.
+4. For document processing, it uses PyPDFLoader to handle PDF uploads and implements RecursiveCharacterTextSplitter to break documents into manageable chunks (5000 characters with 500 character overlap) for better processing.
+5. The project utilizes Chroma as a vector database to store and retrieve document embeddings, enabling semantic search capabilities for finding relevant context.
+6. It implements a history-aware retriever that can understand questions in the context of previous conversations, reformulating questions when necessary to make them standalone.
+7. The question-answering chain is configured to provide concise answers (maximum three sentences) based on the retrieved context and conversation history.
+8. The system maintains conversation history using ChatMessageHistory, allowing for contextual conversations where follow-up questions can reference previous interactions.
+9. The architecture uses LangChain's components (chains, retrievers, prompt templates) to create a modular and extensible system that combines document retrieval, conversation history, and question answering.
+10. Error handling and user feedback are implemented through Streamlit's interface, including warnings for missing API keys and visual feedback for uploaded files and conversation history.
